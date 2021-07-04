@@ -1,7 +1,9 @@
 <h1><%= @user.name %>'s event!</h1>
 
 <% @user.created_events.each do |event| %>
-    <h2><%= event.title %></h2>
-    <small><%= event.date %></small>
-    <p><%= event.description %></p>
+    <div>
+        <h2><%= event.title %></h2>
+        <small><%= event.date %></small>
+        <p><%= event.description %></p>
+    </div>
 <% end %>
