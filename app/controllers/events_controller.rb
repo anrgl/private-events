@@ -43,6 +43,23 @@ class EventsController < ApplicationController
     redirect_to root_path
   end
 
+  def cancel_rsvp
+    @event = Event.find(params[:id])
+    @event.attendees.delete(current_user)
+
+    redirect_to @event, notice: 'You are no longer attending this event'
+  end
+
+  def rsvp
+    @event = Event.find(params[:id])
+    if @event.attendees.include?(current_user)
+      redirect_to @event, alert: 'You are alredy on the list'
+    else
+      @event.attendees << current_user
+      redirect_to @event, notice: 'You are attending this event'
+    end
+  end
+
   private
 
   def event_params

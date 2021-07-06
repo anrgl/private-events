@@ -10,10 +10,17 @@
         </div>
     <% end %>
 
+    <%= link_to "RSVP", rsvp_event_path, class: "btn btn-primary btn-large" %>
+
     <h3>Attendees:</h3>
     <ul>
         <% @event.attendees.each do |attendee| %>
-            <li><%= attendee.name %></li>
+            <li>
+                <%= attendee.name %>
+                <% if current_user == attendee %>
+                    <%= link_to "Leave", cancel_rsvp_event_path, data: { confirm: "Are you sure leave event?" } %>
+                <% end %>
+            </li>
         <% end %>
     </ul>   
 </div>
