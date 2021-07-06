@@ -1,21 +1,23 @@
-<h1>Events</h1>
+<div class="col-6">
+    <h2>Future events:</h2>
+    <% @future_events.each do |event| %>
+        <div>
+            <h2><%= link_to event.title, event_path(event.id) %></h2>
+            <div class="card-subtitle mb-2 text-muted">Event date: <%= event.date.to_formatted_s(:short) %></div>
+            <div>Creator: <%= event.creator.name %></div>
+            <p><%= event.description %></p>
+        </div>
+    <% end %>
+</div>
 
-<h2>Future events:</h2>
-<% @future_events.each do |event| %>
-    <div>
-        <h2><%= event.title %></h2>
-        <small><%= event.date %></small>
-        <small><%= event.creator.name %></small>
-        <p><%= event.description %></p>
-    </div>
-<% end %>
-
-<h2>Past events:</h2>
-<% @past_events.each do |event| %>
-    <div>
-        <h2><%= event.title %></h2>
-        <small><%= event.date %></small>
-        <small><%= event.creator.name %></small>
-        <p><%= event.description %></p>
-    </div>
-<% end %>
+<div class="col-6">
+    <h2>Past events:</h2>
+    <% @past_events.each do |event| %>
+        <div>
+            <h2><%= link_to event.title, event_path(event.id) %></h2>
+            <div class="card-subtitle mb-2 text-muted">Event date: <%= event.date.to_formatted_s(:short) %></div>
+            <div>Creator: <%= event.creator.name %></div>
+            <p><%= event.description %></p>
+        </div>
+    <% end %>
+</div>
