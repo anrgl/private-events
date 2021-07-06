@@ -3,7 +3,7 @@
 <h2>Created events:</h2>
 <% @user.created_events.each do |event| %>
     <div>
-        <h2><%= event.title %></h2>
+        <h2><%= link_to event.title, event_path(event) %></h2>
         <small><%= event.date.to_formatted_s(:short) %></small>
         <p><%= event.description %></p>
     </div>
@@ -12,7 +12,7 @@
 <h2>Attended events:</h2>
 <% @user.attended_events.each do |event| %>
     <div>
-        <h2><%= event.title %></h2>
+        <h2><%= link_to event.title, event_path(event) %></h2>
         <small><%= event.date.to_formatted_s(:short) %></small>
         <p><%= event.description %></p>
     </div>

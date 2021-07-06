@@ -6,7 +6,7 @@
     <% if current_user == @event.creator %>
         <div>
             <%= link_to "Edit event", edit_event_path(@event) %><br>
-            <%= link_to "Delete", event_path(@event), method: :delete, data: { confirmation: "Are you sure? "} %>
+            <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Are you sure? "} %>
         </div>
     <% end %>
 
